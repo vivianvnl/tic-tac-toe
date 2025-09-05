@@ -10,3 +10,5 @@ take turns between x and o
 display winner after x or o wins
 add UI/create gameboard
 event listeners for every move depending on click on different spots in gameboard grid
+
+goal: as little global code as possible
