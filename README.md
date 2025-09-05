@@ -12,3 +12,5 @@ add UI/create gameboard
 event listeners for every move depending on click on different spots in gameboard grid
 
 goal: as little global code as possible
+
+associate grid index with event targets to determine win
