@@ -14,3 +14,4 @@ event listeners for every move depending on click on different spots in gameboar
 goal: as little global code as possible
 
 --associate grid index with event targets to determine win
+--remove ability for player to choose square already chosen
