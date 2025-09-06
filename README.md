@@ -13,4 +13,4 @@ event listeners for every move depending on click on different spots in gameboar
 
 goal: as little global code as possible
 
-associate grid index with event targets to determine win
+--associate grid index with event targets to determine win
