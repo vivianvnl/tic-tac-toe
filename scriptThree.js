@@ -1,4 +1,4 @@
-const playGame = (function() {
+function playGame() {
     const players = {
         playerOne: 'X',
         playerTwo: 'O'
@@ -16,6 +16,7 @@ const playGame = (function() {
     
     squares.forEach(square => {
         grid.push(square);
+        square.classList.toggle('active');
         
         square.addEventListener('click', function(event) {    
             const playerMove = document.createElement('p');
@@ -74,4 +75,11 @@ const playGame = (function() {
             }
         });
     });  
+};
+
+(function startGame() {
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', () => {
+        playGame();
+    });
 })();

@@ -43,9 +43,19 @@ h1 {
     background-color: skyblue;
     border: 2px solid none;
     border-radius: 10px;
+
+    opacity: 0.5;
 }
 
-.squares:hover {
+.squares.active {
+    background-color: skyblue;
+    border: 2px solid none;
+    border-radius: 10px;
+
+    opacity: 1;
+}
+
+.squares.active:hover {
     opacity: 0.75;
     scale: 1.03;
 }
@@ -53,4 +63,24 @@ h1 {
 #status {
     color: blue;
     padding-top: 30px;
+}
+
+button {
+    background-color: blue;
+    border: 3px outset skyblue;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    margin-top: 20px;
+    padding: 9px 35px;
+}
+
+button:hover {
+    background-color: skyblue;
+    border-color: blue;
+    color: blue;
 }
