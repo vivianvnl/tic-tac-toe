@@ -1,9 +1,7 @@
-let grid = [];
-
 const playGame = (function() {
     const players = {
-        playerOne: 'x',
-        playerTwo: 'o'
+        playerOne: 'X',
+        playerTwo: 'O'
     };
 
     let currentPlayer = players.playerOne;
@@ -12,7 +10,9 @@ const playGame = (function() {
         currentPlayer = (currentPlayer == players.playerOne) ? players.playerTwo : players.playerOne;
     }
 
+    let grid = [];
     const squares = document.querySelectorAll('.squares');
+    let status = document.getElementById('status');
     
     squares.forEach(square => {
         grid.push(square);
@@ -25,11 +25,15 @@ const playGame = (function() {
                 alert ('This spot has already been chosen. Try again!');
             }
             else {
+                
                 square.appendChild(playerMove);
-                checkWin();
-                if (checkWin !== 'win') {
+                //checkWin();
+                if (checkWin() === 'win') {
+                    status.textContent = `${currentPlayer} wins!`;
+                } else {
                     checkDraw();
                     switchPlayer();
+                    status.textContent = `${currentPlayer}'s move`;
                 }
                 
             }

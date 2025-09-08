@@ -18,13 +18,13 @@ h1 {
     margin-top: 40px;
 }
 
-p {
+.squares p {
     color: white;
-    padding: 0;
-    font-size: 140px;
+    padding-top: 12px;
+    font-size: 120px;
+    font-weight: 600;
     justify-self: center;
     position: absolute;
-    transform: translateY(-8px);
     cursor: default;
 }
 
@@ -48,4 +48,9 @@ p {
 .squares:hover {
     opacity: 0.75;
     scale: 1.03;
+}
+
+#status {
+    color: blue;
+    padding-top: 30px;
 }
