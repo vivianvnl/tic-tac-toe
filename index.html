@@ -21,6 +21,19 @@
         <div class="squares bottom right"></div>
     </div>
     <h2 id="status">Ready to start?</h2>
-    <button id="startButton">Start Game</button>
+    <form method="post">
+        <div>
+            <div>
+                <label for="playerOne">Player 1:</label>
+                <input type="text" name="playerOne" id="playerOne" placeholder="Example: Julian">
+            </div>
+            <div>
+                <label for="playerTwo">Player 2:</label>
+                <input type="text" name="playerTwo" id="playerTwo" placeholder="Example: Alex">
+            </div>
+        </div>
+        <button type="submit" id="startButton">Start Game</button>
+    </form>
+    
 </body>
 </html>

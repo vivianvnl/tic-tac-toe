@@ -1,7 +1,7 @@
-function playGame() {
+function playGame(playerOne, playerTwo) {
     const players = {
-        playerOne: 'X',
-        playerTwo: 'O'
+        playerOne: {name: playerOne, marker: 'X'},
+        playerTwo: {name: playerTwo, marker: 'O'}
     };
 
     let currentPlayer = players.playerOne;
@@ -17,24 +17,28 @@ function playGame() {
     squares.forEach(square => {
         grid.push(square);
         square.classList.toggle('active');
+        status.textContent = `${currentPlayer.name}'s move`;
         
         square.addEventListener('click', function(event) {    
             const playerMove = document.createElement('p');
-            playerMove.textContent = currentPlayer;
+            playerMove.textContent = currentPlayer.marker;
             
             if (event.currentTarget.textContent) {
-                alert ('This spot has already been chosen. Try again!');
+                status.textContent = 'This spot has already been chosen. Try again!';
             }
             else {
                 
                 square.appendChild(playerMove);
                 //checkWin();
                 if (checkWin() === 'win') {
-                    status.textContent = `${currentPlayer} wins!`;
+                    status.textContent = `${currentPlayer.name} wins!`;
                 } else {
-                    checkDraw();
-                    switchPlayer();
-                    status.textContent = `${currentPlayer}'s move`;
+                    if (checkDraw() === 'draw') {
+                        status.textContent = 'Draw!';
+                    } else {
+                        switchPlayer();
+                        status.textContent = `${currentPlayer.name}'s move`;
+                    }
                 }
                 
             }
@@ -48,7 +52,7 @@ function playGame() {
                         continue;
                     }
                 }
-                console.log('Draw!');
+                return 'draw';
             }
             
             function checkWin() {
@@ -65,7 +69,6 @@ function playGame() {
                         grid[a].textContent === grid[b].textContent &&
                         grid[a].textContent === grid[c].textContent
                     ) {
-                        console.log(`${currentPlayer} wins!`);
                         return 'win';
                         
                     } else {
@@ -79,7 +82,11 @@ function playGame() {
 
 (function startGame() {
     const startButton = document.getElementById('startButton');
-    startButton.addEventListener('click', () => {
-        playGame();
+    startButton.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const playerOneId = document.getElementById('playerOne').value;
+        const playerTwoId = document.getElementById('playerTwo').value;
+        playGame(playerOneId, playerTwoId);
     });
 })();

@@ -60,9 +60,12 @@ h1 {
     scale: 1.03;
 }
 
+#status, button {
+    margin-top: 30px;
+}
+
 #status {
     color: blue;
-    padding-top: 30px;
 }
 
 button {
@@ -75,7 +78,6 @@ button {
     font-weight: 600;
     letter-spacing: 0.5px;
 
-    margin-top: 20px;
     padding: 9px 35px;
 }
 
@@ -83,4 +85,44 @@ button:hover {
     background-color: skyblue;
     border-color: blue;
     color: blue;
+}
+
+form, form > div, form > div > div {
+    display: flex;
+}
+
+form, form > div > div {
+    flex-direction: column;
+}
+
+form {
+    align-items: center;
+    margin-top: 20px;
+}
+
+form > div {
+    gap: 50px;
+}
+
+label {
+    color: blue;
+    letter-spacing: 0.2px;
+    font-weight: 600;
+}
+
+input {
+    font-size: 16px;
+    padding: 5px 8px;
+}
+
+form > div > div {
+    gap: 5px;
+}
+
+#submitNamesButton {
+    font-size: 16px;
+    
+    margin-top: 20px;
+    padding: 6px 0;
+    width: 120px;
 }
