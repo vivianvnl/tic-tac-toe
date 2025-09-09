@@ -16,6 +16,7 @@ function playGame(playerOneName, playerTwoName) {
     let playerMoveCounter = 0;
 
     const resetButton = document.getElementById('resetButton');
+    resetButton.style.display = 'block';
     resetButton.addEventListener('click', () => {
         grid = [];
         squares.forEach(square => {
@@ -62,7 +63,9 @@ function playGame(playerOneName, playerTwoName) {
                         continue;
                     }
                 }
-                return 'draw';
+                if (checkWin() !== 'win') {
+                    return 'draw';
+                }
             }
             
             function checkWin() {
@@ -99,6 +102,8 @@ function playGame(playerOneName, playerTwoName) {
         playGame(playerOne, playerTwo);
         
         form.reset();
+        form.style.display = 'none';
+        startButton.style.display = 'none';
     });
     
 })();

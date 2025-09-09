@@ -129,3 +129,7 @@ form > div > div {
     padding: 6px 0;
     width: 120px;
 }
+
+#resetButton {
+    display: none;
+}

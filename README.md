@@ -11,5 +11,4 @@ prevent spot from being chosen more than once
 determine all possible ways of winning
     display as if statement
 display winner after x or o wins
---remove form and button after starting game
 goal: as little global code as possible
