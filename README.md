@@ -13,7 +13,6 @@
 - display winner after x or o wins
 - goal: as little global code as possible
 
-
 ## Outcome:
 
 This project took me about 13 hours from start to finish over the course of half a week. This was definitely the most challenging thing I've made so far for TOP. Honestly, I doubted my abilities quite a lot at the beginning making this, as it felt like I had retained nothing and understood nothing going in. The biggest thing I worked on for this project is patience. I took many deep breaths as soon as I felt overwhelmed, and went back to review the previous lessons and all the assignments and additional resources to bring up my confidence in factory functions, IIFEs, the module pattern, etc. Then, going back to the project, I wrote out my initial pseudocode and tried to take it one piece at a time. When, still, I felt unsure how to proceed, I looked into other learners' code and videos of people making tic tac toe games, and though some parts still confused me, I felt more confident in how to proceed with my own game, (without stealing other people's work, of course). I tried a couple iterations of the JS code, trying not to do any UI or layout first per the instructions. I still ended up stuck, trying really hard to understand why each piece worked, and couldn't wrap my head around why I had to do this step in this way or put this inside this other thing. I just couldn't understand the logic myself, making it incredibly difficult to make the project if I didn't understand why I had to make it that way.
