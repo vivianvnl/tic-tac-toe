@@ -111,6 +111,9 @@ label {
 }
 
 input {
+    border: 2px ridge blue;
+    border-radius: 8px;
+    outline: none;
     font-size: 16px;
     padding: 5px 8px;
 }

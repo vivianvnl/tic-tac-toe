@@ -1,7 +1,7 @@
-function playGame(playerOne, playerTwo) {
+function playGame(playerOneName, playerTwoName) {
     const players = {
-        playerOne: {name: playerOne, marker: 'X'},
-        playerTwo: {name: playerTwo, marker: 'O'}
+        playerOne: {name: playerOneName, marker: 'X'},
+        playerTwo: {name: playerTwoName, marker: 'O'}
     };
 
     let currentPlayer = players.playerOne;
@@ -13,6 +13,7 @@ function playGame(playerOne, playerTwo) {
     let grid = [];
     const squares = document.querySelectorAll('.squares');
     let status = document.getElementById('status');
+    let playerMoveCounter = 0;
     
     squares.forEach(square => {
         grid.push(square);
@@ -23,24 +24,21 @@ function playGame(playerOne, playerTwo) {
             const playerMove = document.createElement('p');
             playerMove.textContent = currentPlayer.marker;
             
-            if (event.currentTarget.textContent) {
+            if (event.currentTarget.textContent && checkWin() !== 'win' && checkDraw() !== 'draw') {
                 status.textContent = 'This spot has already been chosen. Try again!';
-            }
-            else {
-                
-                square.appendChild(playerMove);
-                //checkWin();
-                if (checkWin() === 'win') {
+            } else if (!event.currentTarget.textContent) {
+                if (playerMoveCounter === 0) {
+                    square.appendChild(playerMove);
+                    playerMoveCounter = 1;
+                } if (checkWin() === 'win') {
                     status.textContent = `${currentPlayer.name} wins!`;
-                } else {
-                    if (checkDraw() === 'draw') {
-                        status.textContent = 'Draw!';
-                    } else {
-                        switchPlayer();
-                        status.textContent = `${currentPlayer.name}'s move`;
-                    }
+                } if (checkDraw() === 'draw') {
+                    status.textContent = 'Draw!';
+                } else if (checkWin() !== 'win' && checkDraw() !== 'draw') {
+                    switchPlayer();
+                    status.textContent = `${currentPlayer.name}'s move`;
+                    playerMoveCounter = 0;
                 }
-                
             }
             
             function checkDraw() {
@@ -70,7 +68,6 @@ function playGame(playerOne, playerTwo) {
                         grid[a].textContent === grid[c].textContent
                     ) {
                         return 'win';
-                        
                     } else {
                         continue;
                     }
@@ -85,8 +82,8 @@ function playGame(playerOne, playerTwo) {
     startButton.addEventListener('click', (event) => {
         event.preventDefault();
 
-        const playerOneId = document.getElementById('playerOne').value;
-        const playerTwoId = document.getElementById('playerTwo').value;
-        playGame(playerOneId, playerTwoId);
+        const playerOne = document.getElementById('playerOne').value;
+        const playerTwo = document.getElementById('playerTwo').value;
+        playGame(playerOne, playerTwo);
     });
 })();
