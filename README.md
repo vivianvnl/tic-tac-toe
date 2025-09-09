@@ -12,3 +12,5 @@ determine all possible ways of winning
     display as if statement
 display winner after x or o wins
 goal: as little global code as possible
+
+outcome:
