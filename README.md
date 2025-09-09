@@ -12,5 +12,4 @@ determine all possible ways of winning
     display as if statement
 display winner after x or o wins
 --remove form and button after starting game
---reset game button
 goal: as little global code as possible

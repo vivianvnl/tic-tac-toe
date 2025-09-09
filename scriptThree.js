@@ -14,6 +14,18 @@ function playGame(playerOneName, playerTwoName) {
     const squares = document.querySelectorAll('.squares');
     let status = document.getElementById('status');
     let playerMoveCounter = 0;
+
+    const resetButton = document.getElementById('resetButton');
+    resetButton.addEventListener('click', () => {
+        grid = [];
+        squares.forEach(square => {
+            grid.push(square);
+            square.textContent = '';
+            status.textContent = `${currentPlayer.name}'s move`;
+            playerMoveCounter = 0;
+        });
+        return;
+    });
     
     squares.forEach(square => {
         grid.push(square);
@@ -78,12 +90,15 @@ function playGame(playerOneName, playerTwoName) {
 };
 
 (function startGame() {
+    const form = document.getElementById('form');
     const startButton = document.getElementById('startButton');
     startButton.addEventListener('click', (event) => {
         event.preventDefault();
-
         const playerOne = document.getElementById('playerOne').value;
         const playerTwo = document.getElementById('playerTwo').value;
         playGame(playerOne, playerTwo);
+        
+        form.reset();
     });
+    
 })();
